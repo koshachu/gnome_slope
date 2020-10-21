@@ -15,10 +15,13 @@ public class EnemiesMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Destroying enemies when they reach lower bound
         if (transform.position.z < zPositionBound)
         {
             Destroy(gameObject);
         }
+        
+        // Enemies movement
         transform.Translate(Vector3.back * enemySpeed * Time.deltaTime);
     }
 }

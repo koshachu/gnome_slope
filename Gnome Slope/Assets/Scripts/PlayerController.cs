@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float playerSpeed;
+    private float xPositionBound = 16;
     private Rigidbody playerRigidBody;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,15 @@ public class PlayerController : MonoBehaviour
 
         playerRigidBody.AddForce(Vector3.forward * playerSpeed * verticalInput);
         playerRigidBody.AddForce(Vector3.right * playerSpeed * horizontalInput);
+
+        if(transform.position.x < -xPositionBound)
+        {
+            transform.position = new Vector3(-xPositionBound, transform.position.y, transform.position.z);
+        }
+        if(transform.position.x > xPositionBound)
+        {
+            transform.position = new Vector3(xPositionBound, transform.position.y, transform.position.z);
+        }
     }
 }
 
