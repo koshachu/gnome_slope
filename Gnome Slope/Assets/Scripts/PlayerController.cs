@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float playerSpeed;
     private float xPositionBound = 16;
+    private float zPositionBound = 7.5f;
     private Rigidbody playerRigidBody;
 
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         playerRigidBody.AddForce(Vector3.forward * playerSpeed * verticalInput);
         playerRigidBody.AddForce(Vector3.right * playerSpeed * horizontalInput);
 
+        // Restricts Player from moving out of the field of view on X Axis
         if(transform.position.x < -xPositionBound)
         {
             transform.position = new Vector3(-xPositionBound, transform.position.y, transform.position.z);
@@ -36,6 +38,16 @@ public class PlayerController : MonoBehaviour
         if(transform.position.x > xPositionBound)
         {
             transform.position = new Vector3(xPositionBound, transform.position.y, transform.position.z);
+        }
+
+        // Restricts Player from moving out of the field of view on Z Axis 
+        if(transform.position.z < -zPositionBound)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -zPositionBound);
+        }
+        if (transform.position.z > zPositionBound)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, zPositionBound);
         }
     }
 }
