@@ -487,6 +487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
+  projectilePrefab: {fileID: 6073280732292315127, guid: a46f0612388c2384fa00755fd300164d,
+    type: 3}
 --- !u!135 &1455514884
 SphereCollider:
   m_ObjectHideFlags: 0

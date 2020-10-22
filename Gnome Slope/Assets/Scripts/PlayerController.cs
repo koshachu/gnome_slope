@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private float xPositionBound = 16;
     private float zPositionBound = 7.5f;
     private Rigidbody playerRigidBody;
+    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+
+        // Method launches projectiles from the Player
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
+
     }
 
     // Player moves, based on vertical and horizontal input with use of RigidBody Component
