@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5404963957050142168}
   - component: {fileID: -8193017998393808431}
   - component: {fileID: -9033419652912583293}
-  - component: {fileID: 7550392730513582310}
+  - component: {fileID: 4529418113701084599}
   m_Layer: 0
   m_Name: Fireball Projectile
   m_TagString: Untagged
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7afce2bb4cf2a4789c3125405d911b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
+  projectileSpeed: 40
 --- !u!65 &-9033419652912583293
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,9 +120,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &7550392730513582310
+  m_Size: {x: 0.8470893, y: 0.9002433, z: 1.0124907}
+  m_Center: {x: 0.007954717, y: 0.09614205, z: -0.0062453747}
+--- !u!54 &4529418113701084599
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,5 +136,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0

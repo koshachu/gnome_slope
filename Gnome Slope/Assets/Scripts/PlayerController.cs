@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float playerSpeed;
     private float xPositionBound = 16;
     private float zPositionBound = 7.5f;
-    private Rigidbody playerRigidBody;
+    // private Rigidbody playerRigidBody;
     public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerRigidBody = GetComponent<Rigidbody>();
+        // playerRigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -30,16 +30,18 @@ public class PlayerController : MonoBehaviour
     }
 
     // Player moves, based on vertical and horizontal input with use of RigidBody Component
-    void PlayerMovement()
+     void PlayerMovement()
     {
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        playerRigidBody.AddForce(Vector3.forward * playerSpeed * verticalInput);
-        playerRigidBody.AddForce(Vector3.right * playerSpeed * horizontalInput);
+        transform.Translate(Vector3.forward * playerSpeed * verticalInput * Time.deltaTime);
+        transform.Translate(Vector3.right * playerSpeed * horizontalInput * Time.deltaTime);
+
+             
 
         // Restricts Player from moving out of the field of view on X Axis
-        if(transform.position.x < -xPositionBound)
+        if (transform.position.x < -xPositionBound)
         {
             transform.position = new Vector3(-xPositionBound, transform.position.y, transform.position.z);
         }
