@@ -10,11 +10,18 @@ public class GameManager : MonoBehaviour
     public Button startButton;
     public ParticleSystem snow;
     public GameObject titleScreen;
-    private SpawnManager spawnManager;
+
+    private static GameManager instance;
+    public static GameManager Instance => instance;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
-        spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
         startButton.GetComponent<Button>();
         startButton.onClick.AddListener(StartGame);
         
@@ -28,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        spawnManager.OnStartGame();
+        SpawnManager.Instance.OnStartGame();
         snow.Play();
         titleScreen.gameObject.SetActive(false);
     }

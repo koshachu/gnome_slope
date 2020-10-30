@@ -8,11 +8,17 @@ public class SpawnManager : MonoBehaviour
     public GameObject powerup;
     private float spawnPositionX = 20;
     private float spawnPositionZ = 20;
-        
-    // Start is called before the first frame update
-    void Start()
+    
+    // field
+    private static SpawnManager instance;
+    // read-only property
+    public static SpawnManager Instance => instance;
+
+    // Before Game starts, new instance of SpawnManager becomes accessible to use in GameManager and everywhere else
+    private void Awake()
     {
-        
+        //assign current instance of SpawnManager to a static field, which can be accessed anywhere by "SpawnManager.Instance"
+        instance = this;
     }
 
     public void OnStartGame()
