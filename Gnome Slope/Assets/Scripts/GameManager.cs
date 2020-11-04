@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Button startButton;
     public ParticleSystem snow;
     public GameObject titleScreen;
+    public GameObject background;
 
     private static GameManager instance;
     public static GameManager Instance => instance;
@@ -38,5 +39,7 @@ public class GameManager : MonoBehaviour
         SpawnManager.Instance.OnStartGame();
         snow.Play();
         titleScreen.gameObject.SetActive(false);
+        background.gameObject.SetActive(false);
+
     }
 }
