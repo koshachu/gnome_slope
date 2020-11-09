@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 4162259286f846b4da317220e1008dbe
+  - enabled: 1
+    path: Assets/Scenes/Gnome Slope.unity
+    guid: 85b4d9b406ae04b4a8adda91e7a3fb36
   m_configObjects: {}
