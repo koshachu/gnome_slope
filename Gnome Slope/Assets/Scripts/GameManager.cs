@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Button startButton;
+    
     public ParticleSystem snow;
-    public GameObject titleScreen;
-    public GameObject background;
+    
+    
 
     private static GameManager instance;
     public static GameManager Instance => instance;
@@ -23,9 +23,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        startButton.GetComponent<Button>();
-        startButton.onClick.AddListener(StartGame);
-        
+        StartGame();
     }
 
     // Update is called once per frame
@@ -38,8 +36,5 @@ public class GameManager : MonoBehaviour
     {
         SpawnManager.Instance.OnStartGame();
         snow.Play();
-        titleScreen.gameObject.SetActive(false);
-        background.gameObject.SetActive(false);
-
     }
 }
