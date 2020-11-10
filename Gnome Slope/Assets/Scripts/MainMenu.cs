@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Gnome Slope");
+        SceneManager.LoadScene(SceneNames.GnomeSlope);
     }
 
     public void QuitGame()
