@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,14 @@ public class PlayerController : MonoBehaviour
     private float zPositionBound = 7.5f;
     // private Rigidbody playerRigidBody;
     public GameObject projectilePrefab;
+    
+
+    internal void SpeedBoost()
+    {
+        playerSpeed += 20; 
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
