@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class ProjectileMovement : MonoBehaviour
+public class ProjectileController : MonoBehaviour
 {
     public float projectileSpeed;
     private float topBoundaryZ = 30;
-    // Start is called before the first frame update
-    void Start()
-    {
         
-    }
 
     // Update is called once per frame
     void Update()
@@ -21,5 +18,14 @@ public class ProjectileMovement : MonoBehaviour
         }
         transform.Translate(Vector3.forward * Time.deltaTime * projectileSpeed);
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
     }
 }
