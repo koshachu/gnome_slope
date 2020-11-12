@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
     public void OnStartGame()
     {
         InvokeRepeating("SpawnRandomEnemy", 2f, 1.5f);
-        InvokeRepeating("SpawnPowerup", 5f, 3);
+        InvokeRepeating("SpawnPowerup", 5f, 10);
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnPowerup()
     {
-        Vector3 spawnposPowerup = new Vector3(Random.Range(-15f, 15f), 0f, Random.Range(-7f, 7f));
+        Vector3 spawnposPowerup = new Vector3(Random.Range(-15f, 15f), 1f, Random.Range(-7f, 7f));
         Instantiate(powerup, spawnposPowerup, powerup.gameObject.transform.rotation);
 
     }
