@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float playerSpeed;
     private float xPositionBound = 16;
     private float zPositionBound = 7.5f;
+    private float powerupValue = 20f;
     // private Rigidbody playerRigidBody;
     public GameObject projectilePrefab;
     
 
     internal void SpeedBoost()
     {
-        playerSpeed += 20;
+        playerSpeed += powerupValue;
         StartCoroutine(PowerupCountDown());
     }
 
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator PowerupCountDown()
     {
         yield return new WaitForSeconds(5);
-        Debug.Log("Speed is set to normal");
+        playerSpeed -= powerupValue;
 
 
     }
