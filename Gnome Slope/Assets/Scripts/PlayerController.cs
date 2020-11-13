@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
 
     internal void SpeedBoost()
     {
-        playerSpeed += 20; 
+        playerSpeed += 20;
+        StartCoroutine(PowerupCountDown());
     }
 
 
@@ -68,6 +69,14 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zPositionBound);
         }
+    }
+
+    IEnumerator PowerupCountDown()
+    {
+        yield return new WaitForSeconds(5);
+        Debug.Log("Speed is set to normal");
+
+
     }
 }
 
