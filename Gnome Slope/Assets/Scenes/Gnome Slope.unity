@@ -5142,6 +5142,8 @@ MonoBehaviour:
   - {fileID: 8309438172221474525, guid: 76f7d5505ec102244ab26fc7812cb04b, type: 3}
   - {fileID: 7743247434505553234, guid: 9d597894920a3b447a2768f8cc1ced56, type: 3}
   powerup: {fileID: 7461181992071139582, guid: 76df91fdd09947649b566cd878d2743a, type: 3}
+  powerupTime: {fileID: 2743628679129025430, guid: 953dd2ef7fbf4384cac2d2e4ebae0ad4,
+    type: 3}
 --- !u!1 &1343622743
 GameObject:
   m_ObjectHideFlags: 0
