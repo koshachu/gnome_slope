@@ -6,6 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     public GameObject powerup;
+    public GameObject powerupTime;
     private float spawnPositionX = 20;
     private float spawnPositionZ = 20;
     
@@ -25,6 +26,7 @@ public class SpawnManager : MonoBehaviour
     {
         InvokeRepeating("SpawnRandomEnemy", 2f, 1.5f);
         InvokeRepeating("SpawnPowerup", 5f, 10);
+        InvokeRepeating("SpawnPowerupTime", 10f, 15);
     }
 
     // Update is called once per frame
@@ -46,6 +48,12 @@ public class SpawnManager : MonoBehaviour
         Vector3 spawnposPowerup = new Vector3(Random.Range(-15f, 15f), 1f, Random.Range(-7f, 7f));
         Instantiate(powerup, spawnposPowerup, powerup.gameObject.transform.rotation);
 
+    }
+
+    void SpawnPowerupTime()
+    {
+        Vector3 spawnposPowerup = new Vector3(Random.Range(-15f, 15f), 1f, Random.Range(-7f, 7f));
+        Instantiate(powerupTime, spawnposPowerup, powerup.gameObject.transform.rotation);
     }
 }
 

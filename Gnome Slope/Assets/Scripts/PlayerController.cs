@@ -17,6 +17,16 @@ public class PlayerController : MonoBehaviour
     {
         playerSpeed += powerupValue;
         StartCoroutine(PowerupCountDown());
+        
+    }
+
+    internal void TimeFreeze()
+    {
+        if (Time.timeScale == 1.0f)
+        {
+            Time.timeScale = 0.5f;
+        }
+        StartCoroutine(PowerupTimeFreeze());
     }
 
 
@@ -78,6 +88,12 @@ public class PlayerController : MonoBehaviour
         playerSpeed -= powerupValue;
 
 
+    }
+
+    IEnumerator PowerupTimeFreeze()
+    {
+        yield return new WaitForSeconds(5);
+        Time.timeScale = 1.0f;
     }
 }
 
