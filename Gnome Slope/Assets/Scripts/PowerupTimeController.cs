@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerupTimeController : MonoBehaviour
+public class PowerupTimeController : BasePowerupController
 {
-    bool shouldBeDestroyed = false;
-    private void OnTriggerEnter(Collider other)
+    protected override void ActivatePowerup(Collider other)
     {
-        if (other.CompareTag("Player") && !shouldBeDestroyed)
-        {
-            shouldBeDestroyed = true;
-            Destroy(gameObject);
-            var playerControllerScript = other.GetComponent<PlayerController>();
-            playerControllerScript.TimeFreeze();
-            Debug.Log("Time is freezed");
-
-        }
-
+        var playerControllerScript = other.GetComponent<PlayerController>();
+        playerControllerScript.TimeFreeze();
+        Debug.Log("Time is freezed");
     }
+       
 }

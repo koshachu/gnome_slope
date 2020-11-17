@@ -1,28 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PowerupController : MonoBehaviour
+public class PowerupController : BasePowerupController
 {
-    bool shouldBeDestroyed = false;
-
-
-    
-    private void OnTriggerEnter(Collider other)
+    protected override void ActivatePowerup(Collider other)
     {
-        if (other.CompareTag("Player") && !shouldBeDestroyed)
-        {
-            shouldBeDestroyed = true;
-            Destroy(gameObject);
-            var playerControllerScript = other.GetComponent<PlayerController>();
-            playerControllerScript.SpeedBoost();
-            Debug.Log("Speed boost");
-            
-        }
-        
+        var playerControllerScript = other.GetComponent<PlayerController>();
+        playerControllerScript.SpeedBoost();
+        Debug.Log("Speed boost");
     }
-
-    
-
-
-
 }
