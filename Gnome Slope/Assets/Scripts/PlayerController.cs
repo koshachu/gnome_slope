@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     private float powerupValue = 20f;
     // private Rigidbody playerRigidBody;
     public GameObject projectilePrefab;
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthBar;
     
 
     internal void SpeedBoost()
@@ -34,12 +38,19 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthBar.SetMaxHealth(maxHealth);
+        currentHealth = maxHealth;
         // playerRigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            TakeDamage(10);
+        }
+
         PlayerMovement();
 
         // Method launches projectiles from the Player
@@ -48,6 +59,12 @@ public class PlayerController : MonoBehaviour
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
 
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 
     // Player moves, based on vertical and horizontal input with use of RigidBody Component
