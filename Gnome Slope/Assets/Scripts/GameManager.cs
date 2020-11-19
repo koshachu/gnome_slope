@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     
     public ParticleSystem snow;
+    public TextMeshProUGUI scoreText;
+    private int score;
     
     
 
@@ -36,5 +38,12 @@ public class GameManager : MonoBehaviour
     {
         SpawnManager.Instance.OnStartGame();
         snow.Play();
+        UpdateScore(0);
+    }
+
+    public void UpdateScore(int scoreAdd)
+    {
+        score += scoreAdd;
+        scoreText.text = "score: " + score;
     }
 }

@@ -7,6 +7,8 @@ public class ProjectileController : MonoBehaviour
 {
     public float projectileSpeed;
     private float topBoundaryZ = 30;
+
+    private bool shouldBeDestroyed;
         
 
     // Update is called once per frame
@@ -22,8 +24,10 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && !shouldBeDestroyed)
         {
+            shouldBeDestroyed = true;
+            GameManager.Instance.UpdateScore(10);
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
