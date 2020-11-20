@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gnome Slope.unity
     guid: 85b4d9b406ae04b4a8adda91e7a3fb36
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: fd3497bbbb3a8e247a9185516377909a
   m_configObjects: {}
