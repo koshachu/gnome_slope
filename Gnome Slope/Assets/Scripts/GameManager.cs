@@ -11,9 +11,8 @@ public class GameManager : MonoBehaviour
     public ParticleSystem snow;
     public TextMeshProUGUI scoreText;
     private int score;
-    
-    
 
+    
     private static GameManager instance;
     public static GameManager Instance => instance;
     // Start is called before the first frame update
@@ -45,5 +44,11 @@ public class GameManager : MonoBehaviour
     {
         score += scoreAdd;
         scoreText.text = "score: " + score;
+    }
+
+    public void EndGame()
+    {
+        Debug.Log("Game Over!");
+        
     }
 }

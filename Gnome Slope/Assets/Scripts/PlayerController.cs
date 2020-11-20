@@ -65,6 +65,11 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+
+        if (currentHealth == 0)
+        {
+            GameManager.Instance.EndGame();
+        }
     }
 
     // Player moves, based on vertical and horizontal input with use of RigidBody Component
